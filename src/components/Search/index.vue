@@ -46,10 +46,11 @@ export default {
   },
   watch: {
     message(newVal) {
+    var cityId = this.$store.state.city.id;
       // console.log(newVal);
       this.cancelRequest();
       this.axios
-        .get("/api/searchList?cityId=10&kw=" + newVal, {
+        .get("/api/searchList?cityId="+cityId+"&kw=" + newVal, {
           cancelToken: new this.axios.CancelToken(c => {
             this.source = c;
           })
@@ -106,15 +107,11 @@ export default {
   margin-left: 5px;
   width: 100%;
 }
-.search_body .search_result {
-}
 .search_body .search_result h3 {
   font-size: 15px;
   color: #999;
   padding: 9px 15px;
   border-bottom: 1px solid #e6e6e6;
-}
-.search_body .search_result ul {
 }
 .search_body .search_result li {
   border-bottom: 1px #c9c9c9 dashed;
