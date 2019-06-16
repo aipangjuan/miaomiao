@@ -71,6 +71,9 @@ export default {
             console.log(err);
           }
         });
+        if(this.message==''){
+          this.moviesList=''
+        }
     }
   }
 };
